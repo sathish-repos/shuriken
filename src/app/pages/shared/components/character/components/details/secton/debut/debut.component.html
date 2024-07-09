@@ -1,3 +1,12 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed [title]="'Debut'">
+  @if (content().manga) { Manga: {{ content().manga }} } @if (content().anime) {
+  Anime: {{ content().anime }} } @if (content().novel) { Novel:{{
+    content().novel
+  }}
+  } @if (content().appearsIn) { appearsIn: {{ content().appearsIn }} } @if
+  (content().game) {Game: {{ content().game }}} @if (content().movie) {Movie:
+  {{ content().manga }}} @if (content().ova) {OVA: {{ content().ova }}}
+  {{ content() | json }}
 </nu-feed>
+}
