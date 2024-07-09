@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Character } from '../../../../../collections/models';
+import {
+  DebutComponent,
+  FamilyComponent,
+  JutsuComponent,
+  NatureTypeComponent,
+  PersonalComponent,
+  RankComponent,
+  ToolsComponent,
+  UniqueTraitsComponent,
+  VoiceActorsComponent,
+} from './secton';
 
 @Component({
   selector: 'nu-details',
   standalone: true,
-  imports: [],
+  imports: [
+    DebutComponent,
+    FamilyComponent,
+    JutsuComponent,
+    NatureTypeComponent,
+    PersonalComponent,
+    RankComponent,
+    ToolsComponent,
+    UniqueTraitsComponent,
+    VoiceActorsComponent,
+  ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
 })
-export class DetailsComponent {}
+export class DetailsComponent {
+  content = input.required<Character>();
+}

@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { FeedComponent } from '../../../../../feed/feed.component';
 
 @Component({
   selector: 'nu-jutsu',
   standalone: true,
-  imports: [],
+  imports: [FeedComponent],
   templateUrl: './jutsu.component.html',
-  styleUrl: './jutsu.component.scss'
+  styleUrl: './jutsu.component.scss',
 })
 export class JutsuComponent {
-
+  content = input.required<string[]>();
 }

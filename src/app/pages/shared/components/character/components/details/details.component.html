@@ -1,35 +1,21 @@
 <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-  <div class="mb-5 flex">
-    <div class="flex flex-column align-items-center" style="width: 2rem">
-      <span
-        class="bg-blue-500 text-0 flex align-items-center justify-content-center border-circle p-2"
-        ><i class="pi pi-compass"></i
-      ></span>
-      <div
-        class="h-full bg-blue-500"
-        style="width: 2px; min-height: 4rem"
-      ></div>
-    </div>
-    <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-      <div class="mb-3">
-        <span class="text-900 font-medium inline-block mr-3">Jacob Jones</span
-        ><span class="text-500 text-sm">1 minute ago</span>
-      </div>
-      <div class="line-height-3 text-700 mb-3">
-        Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Sollicitudin
-        nibh sit amet commodo nulla. Mauris in aliquam sem fringilla ut morbi.
-      </div>
-      <div class="text-500 flex align-items-center gap-4">
-        <div class="flex align-items-center gap-1">
-          <i class="pi pi-heart"></i><span>0</span>
-        </div>
-        <div class="flex align-items-center gap-1">
-          <i class="pi pi-comment"></i><span>1</span>
-        </div>
-        <div class="flex align-items-center gap-1">
-          <i class="pi pi-eye"></i><span>24</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  @if (content().debut) {
+  <nu-debut [content]="content().debut!"></nu-debut>
+  } @if (content().family) {
+  <nu-family [content]="content().family!"></nu-family>
+  } @if (content().jutsu) {
+  <nu-jutsu [content]="content().jutsu!"></nu-jutsu>
+  } @if (content().natureType) {
+  <nu-nature-type [content]="content().natureType!"></nu-nature-type>
+  } @if (content().personal) {
+  <nu-personal [content]="content().personal!"></nu-personal>
+  } @if (content().rank) {
+  <nu-rank [content]="content().rank!"></nu-rank>
+  } @if (content().tools) {
+  <nu-tools [content]="content().tools!"></nu-tools>
+  } @if (content().uniqueTraits) {
+  <nu-unique-traits [content]="content().uniqueTraits!"></nu-unique-traits>
+  } @if (content().voiceActors) {
+  <nu-voice-actors [content]="content().voiceActors!"></nu-voice-actors>
+  }
 </div>
