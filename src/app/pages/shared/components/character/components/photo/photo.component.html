@@ -1,0 +1,15 @@
+<div class="card">
+  <p-carousel
+    [value]="content()"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="true"
+    autoplayInterval="3000"
+  >
+    <ng-template let-image pTemplate="item">
+      <div class="border-1 surface-border border-round m-2 p-3">
+        <img src="{{ image }}" alt="" />
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
