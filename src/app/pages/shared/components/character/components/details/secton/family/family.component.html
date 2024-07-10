@@ -1,3 +1,17 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed [title]="'Family'">
+  @if (content().father) {
+  <p>Father: {{ content().father }}</p>
+  } @if (content().mother) {
+  <p>Mother: {{ content().mother }}</p>
+  } @if (content().godfather) {
+  <p>GodFather: {{ content().godfather }}</p>
+  }@if (content().wife) {
+  <p>Wife: {{ content().wife }}</p>
+  } @if (content().son) {
+  <p>Son: {{ content().son }}</p>
+  } @if (content().daughter) {
+  <p>Daughter: {{ content().daughter }}</p>
+  }
 </nu-feed>
+}

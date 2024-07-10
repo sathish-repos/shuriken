@@ -9,4 +9,6 @@ import { Component, input } from '@angular/core';
 })
 export class FeedComponent {
   title = input<string>('Naruto (￣o￣) . z Z');
+  icon = input<string>('sparkles');
+  color = input<string>('blue-500');
 }

@@ -1,3 +1,12 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed title="Voice Actors">
+  @if (content().japanese) {
+  <nu-list-items
+    [content]="content().japanese"
+    title="Japanese"
+  ></nu-list-items>
+  } @if (content().english) {
+  <nu-list-items [content]="content().english" title="English"></nu-list-items>
+  }
 </nu-feed>
+}

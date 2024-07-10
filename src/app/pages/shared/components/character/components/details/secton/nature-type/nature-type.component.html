@@ -1,3 +1,5 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed title="Nature Type">
+  <nu-list-items [content]="content()"></nu-list-items>
 </nu-feed>
+}

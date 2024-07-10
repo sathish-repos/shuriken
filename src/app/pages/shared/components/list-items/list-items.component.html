@@ -1,0 +1,18 @@
+@if (content()) {
+<div class="mb-3">
+  @if (title()) {
+  <h5>{{ title() }}</h5>
+  } @if (isTypeString(content())) {
+  <p>{{ content() }}</p>
+  }@else {
+  <ol
+    [ngClass]="{ 'apply-grid': applyGrid() && content()?.length! > 3 }"
+    [ngStyle]="breakText() ? { 'overflow-wrap': 'anywhere' } : null"
+  >
+    @for (item of content(); track $index) {
+    <li>{{ item }}</li>
+    }
+  </ol>
+  }
+</div>
+}

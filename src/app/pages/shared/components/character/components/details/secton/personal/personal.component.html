@@ -1,3 +1,102 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed title="Personal Info">
+  <div>
+    <nu-list-items
+      title="Affiliation"
+      [content]="content().affiliation"
+    ></nu-list-items>
+  </div>
+
+  <div>
+    age
+    {{ content().age }}
+  </div>
+
+  <div>
+    birthdate
+    {{ content().birthdate }}
+  </div>
+
+  <div>
+    bloodType
+    {{ content().bloodType }}
+  </div>
+
+  <div>
+    <nu-list-items title="Clan" [content]="content().clan"></nu-list-items>
+  </div>
+  <div>
+    <nu-list-items
+      title="Classification"
+      [content]="content().classification"
+    ></nu-list-items>
+  </div>
+  <div>
+    Height
+    {{ content().height }}
+  </div>
+  <div>
+    <nu-list-items
+      title="jinchūriki"
+      [content]="content()['jinchūriki']"
+    ></nu-list-items>
+  </div>
+  <div>
+    <nu-list-items
+      title="kekkeiGenkai"
+      [content]="content().kekkeiGenkai"
+    ></nu-list-items>
+  </div>
+  <div>
+    kekkeiMōra
+    {{ content()["kekkeiMōra"] }}
+  </div>
+  <div>
+    <nu-list-items
+      title="Occupation"
+      [content]="content().occupation"
+    ></nu-list-items>
+  </div>
+
+  <div>
+    <nu-list-items
+      title="Partner"
+      [content]="content().partner"
+    ></nu-list-items>
+  </div>
+  <div>
+    sex
+    {{ content().sex }}
+  </div>
+  <div>
+    species
+    {{ content().species }}
+  </div>
+
+  <div>
+    status
+    {{ content().status }}
+  </div>
+  <div>
+    <nu-list-items
+      title="TailedBeast"
+      [content]="content().tailedBeast?.split(',')"
+    ></nu-list-items>
+  </div>
+  <div>
+    <nu-list-items title="Team" [content]="content().team"></nu-list-items>
+  </div>
+  <div>
+    <nu-list-items
+      title="Titles"
+      [applyGrid]="false"
+      [breakText]="true"
+      [content]="content().titles"
+    ></nu-list-items>
+  </div>
+  <div>
+    weight
+    {{ content().weight }}
+  </div>
 </nu-feed>
+}

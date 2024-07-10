@@ -1,3 +1,13 @@
-<nu-feed>
-  {{ content() }}
+@if (content()) {
+<nu-feed title="Rank">
+  @if (content().ninjaRank) {
+  <p>Part 1: {{ content().ninjaRank?.['Part I'] }}</p>
+  <p>Part 2: {{ content().ninjaRank?.['Part II'] }}</p>
+  <p>Blank Period {{ content().ninjaRank?.['Blank Period'] }}</p>
+  <p>Gaiden: {{ content().ninjaRank?.Gaiden }}</p>
+  <p>Boruto Manga: {{ content().ninjaRank?.['Boruto Manga'] }}</p>
+  } @if (content().ninjaRegistration) {
+  <p>Ninja Registration: {{ content().ninjaRegistration }}</p>
+  }
 </nu-feed>
+}
