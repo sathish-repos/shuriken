@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './tailed-beasts.component.html',
-  styleUrl: './tailed-beasts.component.scss'
+  styleUrl: './tailed-beasts.component.scss',
 })
-export class TailedBeastsComponent {
-
-}
+export default class TailedBeastsComponent {}

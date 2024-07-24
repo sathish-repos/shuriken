@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './kara.component.html',
-  styleUrl: './kara.component.scss'
+  styleUrl: './kara.component.scss',
 })
-export class KaraComponent {
-
-}
+export default class KaraComponent {}

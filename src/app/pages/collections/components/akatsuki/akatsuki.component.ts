@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './akatsuki.component.html',
-  styleUrl: './akatsuki.component.scss'
+  styleUrl: './akatsuki.component.scss',
 })
-export class AkatsukiComponent {
-
-}
+export default class AkatsukiComponent {}

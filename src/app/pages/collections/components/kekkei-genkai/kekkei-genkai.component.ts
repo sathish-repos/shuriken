@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './kekkei-genkai.component.html',
-  styleUrl: './kekkei-genkai.component.scss'
+  styleUrl: './kekkei-genkai.component.scss',
 })
-export class KekkeiGenkaiComponent {
-
-}
+export default class KekkeiGenkaiComponent {}

@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'nu-nav',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
@@ -28,42 +29,42 @@ export const navItemsMock: NavItems[] = [
   },
   {
     label: 'Akatsuki',
-    link: '/',
+    link: '/akatsuki',
     icon: 'home',
   },
   {
     label: 'Characters',
-    link: '/',
+    link: '/characters',
     icon: 'home',
   },
   {
     label: 'Clans',
-    link: '/',
+    link: '/clans',
     icon: 'sitemap',
   },
   {
     label: 'Kara',
-    link: '/',
+    link: '/kara',
     icon: 'home',
   },
   {
     label: 'Kekkei-genkai',
-    link: '/',
+    link: '/kekkei-genkai',
     icon: 'slack',
   },
   {
     label: 'Taild-beasts',
-    link: '/',
+    link: '/taild-beasts',
     icon: 'prime',
   },
   {
     label: 'Teams',
-    link: '/',
+    link: '/teams',
     icon: 'users',
   },
   {
     label: 'Villages',
-    link: '/',
+    link: '/villages',
     icon: 'graduation-cap',
   },
 ];
