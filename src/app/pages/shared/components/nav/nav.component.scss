@@ -1,0 +1,32 @@
+.logoSection {
+  display: flex;
+  justify-content: end;
+}
+
+.closeButton {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+.logo {
+  padding-left: 30vw;
+  font-size: 26px;
+  font-weight: 500;
+
+  @media (max-width: 767px) {
+    padding-left: 20vw;
+  }
+
+  @media (max-width: 500px) {
+    padding-left: 10vw;
+  }
+}
+
+.content-section {
+  width: calc(100vw - 300px);
+
+  @media (max-width: 992px) {
+    width: calc(100vw - 17px);
+  }
+}
