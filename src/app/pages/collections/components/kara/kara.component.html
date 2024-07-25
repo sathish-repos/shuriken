@@ -1,1 +1,3 @@
-<p>kara works!</p>
+@if (content$ | async; as content) {
+<nu-character-grid [content]="content.kara"></nu-character-grid>
+}
