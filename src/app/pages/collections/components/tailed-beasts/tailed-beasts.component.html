@@ -1,1 +1,3 @@
-<p>tailed-beasts works!</p>
+@if (content$ | async; as content) {
+<nu-character-grid [content]="content['tailed-beasts']"></nu-character-grid>
+}
