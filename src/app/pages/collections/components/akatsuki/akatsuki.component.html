@@ -1,1 +1,3 @@
-<p>akatsuki works!</p>
+@if (content$ | async; as content) {
+<nu-character-grid [content]="content.akatsuki"></nu-character-grid>
+}
