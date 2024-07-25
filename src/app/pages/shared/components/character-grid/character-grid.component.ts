@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Character, Characters } from '../../../collections/models';
 import { CollectionsService } from '../../../collections/services/collection.service';
@@ -13,8 +13,9 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './character-grid.component.scss',
 })
 export class CharacterGridComponent {
-  content = input.required<Character[]>();
   router = inject(Router);
+  route = inject(ActivatedRoute);
+  content = input.required<Character[]>();
 
   getStatus(status: string | undefined): string {
     return status ? status : 'Alive';
@@ -25,6 +26,6 @@ export class CharacterGridComponent {
   }
 
   navigateById(id: number) {
-    this.router.navigateByUrl(`/characters/${id.toString()}`);
+    this.router.navigate([`${id.toString()}`], { relativeTo: this.route });
   }
 }

@@ -8,8 +8,18 @@ export const routes: Routes = [
   },
   {
     path: 'akatsuki',
-    loadComponent: () =>
-      import('./pages/collections/components/akatsuki/akatsuki.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/collections/components/akatsuki/akatsuki.component'),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/character/character.component'),
+      },
+    ],
   },
   {
     path: 'characters',
@@ -45,8 +55,18 @@ export const routes: Routes = [
   },
   {
     path: 'kara',
-    loadComponent: () =>
-      import('./pages/collections/components/kara/kara.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/collections/components/kara/kara.component'),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/character/character.component'),
+      },
+    ],
   },
   {
     path: 'kekkei-genkai',
@@ -67,10 +87,20 @@ export const routes: Routes = [
   },
   {
     path: 'taild-beasts',
-    loadComponent: () =>
-      import(
-        './pages/collections/components/tailed-beasts/tailed-beasts.component'
-      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './pages/collections/components/tailed-beasts/tailed-beasts.component'
+          ),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/character/character.component'),
+      },
+    ],
   },
   {
     path: 'teams',
