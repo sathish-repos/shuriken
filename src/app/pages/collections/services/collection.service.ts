@@ -7,6 +7,7 @@ import {
   Clans,
   Group,
   Karas,
+  KekkeiGenkais,
 } from '../models';
 import { Observable } from 'rxjs';
 import { GroupTypeAction } from '../../shared/enums/group-type.enum';
@@ -41,6 +42,6 @@ export class CollectionsService {
   }
 
   getKekkeiGenkais() {
-    return this.http.get<Karas>(`${this.baseUrl}/kekkei-genkai`);
+    return this.http.get<KekkeiGenkais>(`${this.baseUrl}/kekkei-genkai`);
   }
 }

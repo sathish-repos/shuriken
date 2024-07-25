@@ -1,1 +1,6 @@
-<p>kekkei-genkai works!</p>
+@if (content$ | async; as content) {
+<nu-group-grid
+  [content]="content['kekkei-genkai']"
+  [groupType]="groupType"
+></nu-group-grid>
+}
