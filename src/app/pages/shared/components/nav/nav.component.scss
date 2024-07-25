@@ -16,7 +16,8 @@ li {
 }
 
 .active {
-  background-color: #c7bfbf;
+  background-color: var(--primary-color);
+  color: var(--surface-0);
 }
 
 .logo {

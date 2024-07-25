@@ -50,10 +50,20 @@ export const routes: Routes = [
   },
   {
     path: 'kekkei-genkai',
-    loadComponent: () =>
-      import(
-        './pages/collections/components/kekkei-genkai/kekkei-genkai.component'
-      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './pages/collections/components/kekkei-genkai/kekkei-genkai.component'
+          ),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/group/group.component'),
+      },
+    ],
   },
   {
     path: 'taild-beasts',
@@ -64,13 +74,34 @@ export const routes: Routes = [
   },
   {
     path: 'teams',
-    loadComponent: () =>
-      import('./pages/collections/components/teams/teams.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/collections/components/teams/teams.component'),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/group/group.component'),
+      },
+    ],
   },
   {
     path: 'villages',
-    loadComponent: () =>
-      import('./pages/collections/components/villages/villages.component'),
+
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/collections/components/villages/villages.component'),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/group/group.component'),
+      },
+    ],
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', loadComponent: () => import('./pages/home/home.component') },
