@@ -24,7 +24,7 @@ export type NavItems = {
 export const navItemsMock: NavItems[] = [
   {
     label: 'Home',
-    link: '/',
+    link: '/home',
     icon: 'home',
   },
   {
