@@ -10,6 +10,7 @@ import {
   KekkeiGenkais,
   TailedBeasts,
   Teams,
+  Villages,
 } from '../models';
 import { Observable } from 'rxjs';
 import { GroupTypeAction } from '../../shared/enums/group-type.enum';
@@ -53,5 +54,9 @@ export class CollectionsService {
 
   getTeams() {
     return this.http.get<Teams>(`${this.baseUrl}/teams`);
+  }
+
+  getVillages() {
+    return this.http.get<Villages>(`${this.baseUrl}/villages`);
   }
 }

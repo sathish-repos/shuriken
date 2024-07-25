@@ -1,1 +1,6 @@
-<p>villages works!</p>
+@if (content$ | async; as content) {
+<nu-group-grid
+  [content]="content.villages"
+  [groupType]="groupType"
+></nu-group-grid>
+}
