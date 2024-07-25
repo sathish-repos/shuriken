@@ -1,1 +1,6 @@
-<p>clans works!</p>
+@if (content$ | async; as content) {
+<nu-group-grid
+  [content]="content.clans"
+  [groupType]="groupType"
+></nu-group-grid>
+}

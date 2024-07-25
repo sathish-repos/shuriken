@@ -1,9 +1,8 @@
-import { Groups } from ".";
+import { Group } from '.';
 
 export interface Teams {
-  teams: Groups[];
+  teams: Group[];
   currentPage: number;
   pageSize: number;
   total: number;
 }
-

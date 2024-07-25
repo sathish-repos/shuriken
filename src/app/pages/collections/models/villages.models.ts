@@ -1,7 +1,7 @@
-import { Groups } from '.';
+import { Group } from '.';
 
 export interface Villages {
-  villages: Groups[];
+  villages: Group[];
   currentPage: number;
   pageSize: number;
   total: number;

@@ -1,7 +1,7 @@
-import { Groups } from '.';
+import { Group } from '.';
 
 export interface KekkeiGenkais {
-  'kekkei-genkai': Groups[];
+  'kekkei-genkai': Group[];
   currentPage: number;
   pageSize: number;
   total: number;

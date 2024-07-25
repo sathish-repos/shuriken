@@ -1,11 +1,11 @@
 export interface Clans {
-  clans: Groups[];
+  clans: Group[];
   currentPage: number;
   pageSize: number;
   total: number;
 }
 
-export interface Groups {
+export interface Group {
   id: number;
   name: string;
   characters: number[];

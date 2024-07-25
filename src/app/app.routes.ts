@@ -30,8 +30,18 @@ export const routes: Routes = [
   },
   {
     path: 'clans',
-    loadComponent: () =>
-      import('./pages/collections/components/clans/clans.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/collections/components/clans/clans.component'),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/group/group.component'),
+      },
+    ],
   },
   {
     path: 'kara',
