@@ -1,17 +1,25 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, Input, input, signal } from '@angular/core';
 import { Character } from '../../../collections/models';
-import { JsonPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { PhotoComponent } from './components/photo/photo.component';
 import { DetailsComponent } from './components/details/details.component';
+import { Observable } from 'rxjs';
+import { CollectionsService } from '../../../collections/services/collection.service';
 
 @Component({
   selector: 'nu-character',
   standalone: true,
-  imports: [JsonPipe, CardModule, PhotoComponent, DetailsComponent],
+  imports: [AsyncPipe, CardModule, PhotoComponent, DetailsComponent],
   templateUrl: './character.component.html',
   styleUrl: './character.component.scss',
 })
-export class CharacterComponent {
-  content = input.required<Character>();
+export default class CharacterComponent {
+  collectionsService = inject(CollectionsService);
+  content$: Observable<Character> = {} as Observable<Character>;
+
+  @Input()
+  set id(paramId: string) {
+    this.content$ = this.collectionsService.getCharacter(paramId);
+  }
 }

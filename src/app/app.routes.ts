@@ -13,8 +13,20 @@ export const routes: Routes = [
   },
   {
     path: 'characters',
-    loadComponent: () =>
-      import('./pages/collections/components/characters/characters.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import(
+            './pages/collections/components/characters/characters.component'
+          ),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./pages/shared/components/character/character.component'),
+      },
+    ],
   },
   {
     path: 'clans',
