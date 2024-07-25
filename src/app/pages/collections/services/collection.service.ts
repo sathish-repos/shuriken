@@ -9,6 +9,7 @@ import {
   Karas,
   KekkeiGenkais,
   TailedBeasts,
+  Teams,
 } from '../models';
 import { Observable } from 'rxjs';
 import { GroupTypeAction } from '../../shared/enums/group-type.enum';
@@ -48,5 +49,9 @@ export class CollectionsService {
 
   getTailedBeasts() {
     return this.http.get<TailedBeasts>(`${this.baseUrl}/tailed-beasts`);
+  }
+
+  getTeams() {
+    return this.http.get<Teams>(`${this.baseUrl}/teams`);
   }
 }

@@ -1,1 +1,7 @@
-<p>teams works!</p>
+@if (content$ | async; as content) {
+  <nu-group-grid
+    [content]="content.teams"
+    [groupType]="groupType"
+  ></nu-group-grid>
+  }
+  

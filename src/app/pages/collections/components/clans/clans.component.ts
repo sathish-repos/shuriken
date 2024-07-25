@@ -9,7 +9,7 @@ import { GroupTypeAction } from '../../../shared/enums/group-type.enum';
 @Component({
   selector: 'nu-clans',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe, GroupGridComponent],
+  imports: [AsyncPipe, GroupGridComponent],
   templateUrl: './clans.component.html',
   styleUrl: './clans.component.scss',
 })
