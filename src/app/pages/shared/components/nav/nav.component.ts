@@ -30,12 +30,12 @@ export const navItemsMock: NavItems[] = [
   {
     label: 'Akatsuki',
     link: '/akatsuki',
-    icon: 'home',
+    icon: 'turkish-lira',
   },
   {
     label: 'Characters',
     link: '/characters',
-    icon: 'home',
+    icon: 'user',
   },
   {
     label: 'Clans',
@@ -45,7 +45,7 @@ export const navItemsMock: NavItems[] = [
   {
     label: 'Kara',
     link: '/kara',
-    icon: 'home',
+    icon: 'star',
   },
   {
     label: 'Kekkei-genkai',
