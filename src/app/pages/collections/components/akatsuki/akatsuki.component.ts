@@ -4,6 +4,7 @@ import { Akatsukis } from '../../models';
 import { AsyncPipe } from '@angular/common';
 import { CollectionsService } from '../../services/collection.service';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
+import { PaginationService } from '../../../shared/services/pagination.service';
 
 @Component({
   selector: 'nu-akatsuki',
@@ -11,11 +12,14 @@ import { CharacterGridComponent } from '../../../shared/components/character-gri
   imports: [CharacterGridComponent, AsyncPipe],
   templateUrl: './akatsuki.component.html',
   styleUrl: './akatsuki.component.scss',
+  providers: [PaginationService],
 })
 export default class AkatsukiComponent {
   collectionsService = inject(CollectionsService);
-  currentPage = signal<number>(0);
-  pageSize = signal<number>(20);
+  paginationService = inject(PaginationService);
+  currentPage = this.paginationService.currentPage;
+  pageSize = this.paginationService.pageSize;
+
   content$: Signal<Observable<Akatsukis>> = computed(() =>
     this.collectionsService.getAkatsukis(this.currentPage(), this.pageSize())
   );

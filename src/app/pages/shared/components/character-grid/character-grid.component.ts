@@ -17,9 +17,7 @@ export class CharacterGridComponent {
   router = inject(Router);
   route = inject(ActivatedRoute);
   content = input.required<Character[]>();
-  currentPage = model.required<number>();
-  pageSize = model.required<number>();
-  totalItems = input<number>();
+  totalItems = input.required<number>();
 
   getStatus(status: string | undefined): string {
     return status ? status : 'Alive';

@@ -1,5 +1,6 @@
-import { Component, input, model } from '@angular/core';
+import { Component, inject, input, model, signal } from '@angular/core';
 import { PaginatorModule } from 'primeng/paginator';
+import { PaginationService } from '../../services/pagination.service';
 
 @Component({
   selector: 'nu-paginator',
@@ -9,17 +10,16 @@ import { PaginatorModule } from 'primeng/paginator';
   styleUrl: './paginator.component.scss',
 })
 export class PaginatorComponent {
-  first: number = 0;
-  rows: number = 25;
-  currentPage = model.required<number>();
-  pageSize = model.required<number>();
+  paginationService = inject(PaginationService);
+
+  first = signal<number>(0);
+  rows = this.paginationService.pageSize;
   totalItems = input.required<number>();
 
   onPageChange(event: any) {
-    this.currentPage.set(event.page);
-    this.pageSize.set(event.row);
-    this.first = event.first;
-    this.rows = event.rows;
+    this.first.set(event.first);
+    this.rows.set(event.rows);
+    this.paginationService.currentPage.set(event.page);
   }
 }
 
