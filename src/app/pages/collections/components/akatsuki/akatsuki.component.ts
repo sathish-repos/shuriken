@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Akatsukis } from '../../models';
 import { AsyncPipe } from '@angular/common';
@@ -14,5 +14,9 @@ import { CharacterGridComponent } from '../../../shared/components/character-gri
 })
 export default class AkatsukiComponent {
   collectionsService = inject(CollectionsService);
-  content$: Observable<Akatsukis> = this.collectionsService.getAkatsukis();
+  currentPage = signal<number>(0);
+  pageSize = signal<number>(20);
+  content$: Signal<Observable<Akatsukis>> = computed(() =>
+    this.collectionsService.getAkatsukis(this.currentPage(), this.pageSize())
+  );
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import {
   Akatsukis,
@@ -28,28 +28,36 @@ export class CollectionsService {
     return this.http.get<Group>(`${this.baseUrl}/${group}/${id}`);
   }
 
-  getCharacters(): Observable<Characters> {
-    return this.http.get<Characters>(`${this.baseUrl}/characters`);
+  getCharacters(currentPage: number, pageSize: number): Observable<Characters> {
+    return this.http.get<Characters>(`${this.baseUrl}/characters`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
-  getAkatsukis() {
-    return this.http.get<Akatsukis>(`${this.baseUrl}/akatsuki`);
+  getAkatsukis(currentPage: number, pageSize: number) {
+    return this.http.get<Akatsukis>(`${this.baseUrl}/akatsuki`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getClans() {
     return this.http.get<Clans>(`${this.baseUrl}/clans`);
   }
 
-  getKaras() {
-    return this.http.get<Karas>(`${this.baseUrl}/kara`);
+  getKaras(currentPage: number, pageSize: number) {
+    return this.http.get<Karas>(`${this.baseUrl}/kara`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getKekkeiGenkais() {
     return this.http.get<KekkeiGenkais>(`${this.baseUrl}/kekkei-genkai`);
   }
 
-  getTailedBeasts() {
-    return this.http.get<TailedBeasts>(`${this.baseUrl}/tailed-beasts`);
+  getTailedBeasts(currentPage: number, pageSize: number) {
+    return this.http.get<TailedBeasts>(`${this.baseUrl}/tailed-beasts`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getTeams() {
@@ -58,5 +66,12 @@ export class CollectionsService {
 
   getVillages() {
     return this.http.get<Villages>(`${this.baseUrl}/villages`);
+  }
+
+  getQueryParams(currentPage: number, pageSize: number) {
+    let params = new HttpParams();
+    params = params.append('page', currentPage + 1);
+    params = params.append('limit', pageSize);
+    return params;
   }
 }

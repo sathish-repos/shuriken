@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal, Signal } from '@angular/core';
 import { TailedBeasts } from '../../models';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -14,6 +14,9 @@ import { CollectionsService } from '../../services/collection.service';
 })
 export default class TailedBeastsComponent {
   collectionsService = inject(CollectionsService);
-  content$: Observable<TailedBeasts> =
-    this.collectionsService.getTailedBeasts();
+  currentPage = signal<number>(0);
+  pageSize = signal<number>(20);
+  content$: Signal<Observable<TailedBeasts>> = computed(() =>
+    this.collectionsService.getTailedBeasts(this.currentPage(), this.pageSize())
+  );
 }

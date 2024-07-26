@@ -1,0 +1,10 @@
+<div class="pb-5 flex justify-content-center">
+  <p-paginator
+    [classList]="'shadow-2'"
+    (onPageChange)="onPageChange($event)"
+    [first]="first"
+    [rows]="rows"
+    [totalRecords]="totalItems()"
+    [rowsPerPageOptions]="[25, 50, 100]"
+  />
+</div>

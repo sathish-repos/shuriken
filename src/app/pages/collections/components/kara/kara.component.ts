@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal, Signal } from '@angular/core';
 import { Karas } from '../../models';
 import { Observable } from 'rxjs';
 import { CollectionsService } from '../../services/collection.service';
@@ -14,5 +14,9 @@ import { CharacterGridComponent } from '../../../shared/components/character-gri
 })
 export default class KaraComponent {
   collectionsService = inject(CollectionsService);
-  content$: Observable<Karas> = this.collectionsService.getKaras();
+  currentPage = signal<number>(0);
+  pageSize = signal<number>(20);
+  content$: Signal<Observable<Karas>> = computed(() =>
+    this.collectionsService.getKaras(this.currentPage(), this.pageSize())
+  );
 }
