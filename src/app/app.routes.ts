@@ -48,8 +48,18 @@ export const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./pages/shared/components/group/group.component'),
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/shared/components/group/group.component'),
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('./pages/shared/components/character/character.component'),
+          },
+        ],
       },
     ],
   },
@@ -80,8 +90,18 @@ export const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./pages/shared/components/group/group.component'),
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/shared/components/group/group.component'),
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('./pages/shared/components/character/character.component'),
+          },
+        ],
       },
     ],
   },
@@ -112,14 +132,23 @@ export const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./pages/shared/components/group/group.component'),
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/shared/components/group/group.component'),
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('./pages/shared/components/character/character.component'),
+          },
+        ],
       },
     ],
   },
   {
     path: 'villages',
-
     children: [
       {
         path: '',
@@ -128,8 +157,18 @@ export const routes: Routes = [
       },
       {
         path: ':id',
-        loadComponent: () =>
-          import('./pages/shared/components/group/group.component'),
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./pages/shared/components/group/group.component'),
+          },
+          {
+            path: ':id',
+            loadComponent: () =>
+              import('./pages/shared/components/character/character.component'),
+          },
+        ],
       },
     ],
   },

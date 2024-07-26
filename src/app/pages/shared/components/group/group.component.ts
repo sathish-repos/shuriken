@@ -5,11 +5,12 @@ import { CollectionsService } from '../../../collections/services/collection.ser
 import { GroupTypeAction } from '../../enums/group-type.enum';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { GroupRouteService } from '../../services/group-routing.service';
+import { GroupCharacterCardComponent } from './components/group-character-card/group-character-card.component';
 
 @Component({
   selector: 'nu-group',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe, GroupCharacterCardComponent],
   templateUrl: './group.component.html',
   styleUrl: './group.component.scss',
 })
