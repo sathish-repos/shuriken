@@ -4,7 +4,7 @@ import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
 import { CollectionsService } from '../../services/collection.service';
-import { PaginationService } from '../../../shared/services/pagination.service';
+import { PageEnums } from '../../enums/collections.enums';
 
 @Component({
   selector: 'nu-tailed-beasts',
@@ -12,13 +12,11 @@ import { PaginationService } from '../../../shared/services/pagination.service';
   imports: [AsyncPipe, CharacterGridComponent],
   templateUrl: './tailed-beasts.component.html',
   styleUrl: './tailed-beasts.component.scss',
-  providers: [PaginationService],
 })
 export default class TailedBeastsComponent {
   collectionsService = inject(CollectionsService);
-  paginationService = inject(PaginationService);
-  currentPage = this.paginationService.currentPage;
-  pageSize = this.paginationService.pageSize;
+  currentPage = signal<PageEnums>(PageEnums.CURRENT_PAGE);
+  pageSize = signal<PageEnums>(PageEnums.ITEM_COUNT);
 
   content$: Signal<Observable<TailedBeasts>> = computed(() =>
     this.collectionsService.getTailedBeasts(this.currentPage(), this.pageSize())

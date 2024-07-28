@@ -2,5 +2,7 @@
 <nu-character-grid
   [content]="content['tailed-beasts']"
   [totalItems]="content.total"
+  (currentPage)="currentPage.set($event)"
+  (pageSize)="pageSize.set($event)"
 ></nu-character-grid>
 }

@@ -1,8 +1,6 @@
-import { Component, inject, input, model } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Character, Characters } from '../../../collections/models';
-import { CollectionsService } from '../../../collections/services/collection.service';
+import { Character } from '../../../collections/models';
 import { AsyncPipe } from '@angular/common';
 import { PaginatorComponent } from '../paginator/paginator.component';
 
@@ -18,6 +16,9 @@ export class CharacterGridComponent {
   route = inject(ActivatedRoute);
   content = input.required<Character[]>();
   totalItems = input.required<number>();
+
+  pageSize = output<number>();
+  currentPage = output<number>();
 
   getStatus(status: string | undefined): string {
     return status ? status : 'Alive';

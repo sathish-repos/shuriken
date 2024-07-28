@@ -1,6 +1,9 @@
-import { Component, inject, input, model, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { PaginatorModule } from 'primeng/paginator';
-import { PaginationService } from '../../services/pagination.service';
+import {
+  ItemCountEnums,
+  PageEnums,
+} from '../../../collections/enums/collections.enums';
 
 @Component({
   selector: 'nu-paginator',
@@ -10,17 +13,31 @@ import { PaginationService } from '../../services/pagination.service';
   styleUrl: './paginator.component.scss',
 })
 export class PaginatorComponent {
-  paginationService = inject(PaginationService);
+  totalItems = input.required<number>();
+  pageSize = output<number>();
+  currentPage = output<number>();
 
   first = signal<number>(0);
-  rows = this.paginationService.pageSize;
-  totalItems = input.required<number>();
+  rows = signal<number>(PageEnums.ITEM_COUNT);
 
   onPageChange(event: any) {
     this.first.set(event.first);
     this.rows.set(event.rows);
-    this.paginationService.currentPage.set(event.page);
+    // setTimeout(() => {
+    //   this.emitCurrentPageAndPageSize(event.page, event.rows);
+    // }, 1000);
   }
+
+  emitCurrentPageAndPageSize(currentPage: number, PageSize: number) {
+    this.currentPage.emit(currentPage);
+    this.pageSize.emit(PageSize);
+  }
+
+  getCountArray = computed(() => [
+    ItemCountEnums.LOW,
+    ItemCountEnums.MEDIUM,
+    ItemCountEnums.HIGH,
+  ]);
 }
 
 export const mock: PageEvent = {

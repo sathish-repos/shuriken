@@ -2,5 +2,7 @@
 <nu-character-grid
   [content]="content.characters"
   [totalItems]="content.total"
+  (currentPage)="currentPage.set($event)"
+  (pageSize)="pageSize.set($event)"
 ></nu-character-grid>
 }

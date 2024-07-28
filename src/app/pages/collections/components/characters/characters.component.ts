@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
 import { PaginatorComponent } from '../../../shared/components/paginator/paginator.component';
-import { PaginationService } from '../../../shared/services/pagination.service';
+import { PageEnums } from '../../enums/collections.enums';
 
 @Component({
   selector: 'nu-characters',
@@ -13,13 +13,11 @@ import { PaginationService } from '../../../shared/services/pagination.service';
   imports: [AsyncPipe, CharacterGridComponent, PaginatorComponent],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.scss',
-  providers: [PaginationService],
 })
 export default class CharactersComponent {
   collectionsService = inject(CollectionsService);
-  paginationService = inject(PaginationService);
-  currentPage = this.paginationService.currentPage;
-  pageSize = this.paginationService.pageSize;
+  currentPage = signal<PageEnums>(PageEnums.CURRENT_PAGE);
+  pageSize = signal<PageEnums>(PageEnums.ITEM_COUNT);
 
   content$: Signal<Observable<Characters>> = computed(() =>
     this.collectionsService.getCharacters(this.currentPage(), this.pageSize())
