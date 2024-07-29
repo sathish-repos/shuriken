@@ -9,20 +9,6 @@
   }
 }
 
-.nav-item :hover {
-  .nav-label,
-  .pi {
-    color: var(--primary-color);
-  }
-
-  .active {
-    .nav-label,
-    .pi {
-      color: var(--surface-0) !important;
-    }
-  }
-}
-
 li {
   a {
     text-decoration: none;
@@ -30,7 +16,11 @@ li {
   }
 }
 
-.active {
+.nav-item:hover {
+  background-color: var(--surface-200);
+}
+
+.nav-item-active {
   background-color: var(--primary-color);
   .nav-label,
   .pi {

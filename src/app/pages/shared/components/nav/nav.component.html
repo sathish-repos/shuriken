@@ -18,9 +18,9 @@
               @for (item of content(); track $index) {
               <li class="nav-item">
                 <a
-                  [routerLinkActive]="'active'"
+                  [routerLinkActive]="'nav-item-active'"
                   [routerLink]="item.link"
-                  class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round text-700 transition-duration-150 transition-colors"
+                  class="p-element flex align-items-center cursor-pointer p-3 border-round text-700"
                   ><i class="pi pi-{{ item.icon }} mr-2"></i
                   ><span class="font-medium nav-label">{{ item.label }}</span
                   ><span class="p-ink"></span
