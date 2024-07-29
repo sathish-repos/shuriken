@@ -25,7 +25,7 @@ export class CharacterGridComponent {
   }
 
   getStatusClass(status: string | undefined): string {
-    return status ? 'bg-red-400' : 'bg-primary-400';
+    return status ? 'bg-red-400' : 'bg-green-400';
   }
 
   navigateById(id: number) {
