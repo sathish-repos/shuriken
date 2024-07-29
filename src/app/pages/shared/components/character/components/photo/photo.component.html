@@ -1,5 +1,5 @@
-<div class="card">
-  <p-carousel
+<div class="card flex justify-content-center pt-6">
+  <!-- <p-carousel
     [value]="content()"
     [numVisible]="1"
     [numScroll]="1"
@@ -11,5 +11,7 @@
         <img src="{{ image }}" alt="" />
       </div>
     </ng-template>
-  </p-carousel>
+  </p-carousel> -->
+
+  <img src="{{ content()[1] ? content()[1] : content()[0] }}" alt="" />
 </div>
