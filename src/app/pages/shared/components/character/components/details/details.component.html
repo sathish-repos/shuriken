@@ -2,10 +2,10 @@
   <h2>{{ content().name }}</h2>
 </div>
 <div class="surface-ground px-3 py-6 md:px-6 lg:px-8">
-  @if (content().debut) {
-  <nu-debut [content]="content().debut!"></nu-debut>
-  } @if (content().family) {
+  @if (content().family) {
   <nu-family [content]="content().family!"></nu-family>
+  }@if (content().debut) {
+  <nu-debut [content]="content().debut!"></nu-debut>
   } @if (content().jutsu) {
   <nu-jutsu [content]="content().jutsu!"></nu-jutsu>
   } @if (content().natureType) {
