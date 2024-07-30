@@ -1,6 +1,17 @@
-@if (content$ | async; as content) {
+@if (content$() | async; as content) {
 <nu-group-grid
   [content]="content.clans"
   [groupType]="groupType"
 ></nu-group-grid>
+
+<div class="card mb-5 flex justify-content-center">
+  <p-paginator
+    class="shadow-2"
+    (onPageChange)="onPageChange($event)"
+    [first]="first"
+    [rows]="rows"
+    [totalRecords]="content.total"
+    [rowsPerPageOptions]="[25, 50, 100]"
+  />
+</div>
 }

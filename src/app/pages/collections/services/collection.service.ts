@@ -42,8 +42,10 @@ export class CollectionsService {
     });
   }
 
-  getClans() {
-    return this.http.get<Clans>(`${this.baseUrl}/clans`);
+  getClans(currentPage: number, pageSize: number) {
+    return this.http.get<Clans>(`${this.baseUrl}/clans`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getKaras(currentPage: number, pageSize: number) {
@@ -52,8 +54,10 @@ export class CollectionsService {
     });
   }
 
-  getKekkeiGenkais() {
-    return this.http.get<KekkeiGenkais>(`${this.baseUrl}/kekkei-genkai`);
+  getKekkeiGenkais(currentPage: number, pageSize: number) {
+    return this.http.get<KekkeiGenkais>(`${this.baseUrl}/kekkei-genkai`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getTailedBeasts(currentPage: number, pageSize: number) {
@@ -62,12 +66,16 @@ export class CollectionsService {
     });
   }
 
-  getTeams() {
-    return this.http.get<Teams>(`${this.baseUrl}/teams`);
+  getTeams(currentPage: number, pageSize: number) {
+    return this.http.get<Teams>(`${this.baseUrl}/teams`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
-  getVillages() {
-    return this.http.get<Villages>(`${this.baseUrl}/villages`);
+  getVillages(currentPage: number, pageSize: number) {
+    return this.http.get<Villages>(`${this.baseUrl}/villages`, {
+      params: this.getQueryParams(currentPage, pageSize),
+    });
   }
 
   getQueryParams(currentPage: number, pageSize: number) {
