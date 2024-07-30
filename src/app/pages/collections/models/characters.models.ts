@@ -82,25 +82,25 @@ export interface Family {
 }
 
 export interface Personal {
-  birthdate?: string;
-  sex?: string;
-  age?: Age;
-  height?: Height;
-  weight?: Weight;
-  bloodType?: string;
-  kekkeiGenkai?: string[] | string;
-  classification?: string[] | string;
-  tailedBeast?: string;
-  occupation?: string[] | string;
   affiliation?: string[] | string;
-  team?: string[] | string;
+  age?: Age;
+  birthdate?: string;
+  bloodType?: string;
   clan?: string[] | string;
-  titles?: string[];
-  status?: string;
-  kekkeiMōra?: string;
-  partner?: string[] | string;
-  species?: string;
+  classification?: string[] | string;
+  height?: Height;
   jinchūriki?: string[];
+  kekkeiGenkai?: string[] | string;
+  kekkeiMōra?: string;
+  occupation?: string[] | string;
+  partner?: string[] | string;
+  sex?: string;
+  species?: string;
+  status?: string;
+  tailedBeast?: string;
+  team?: string[] | string;
+  titles?: string[];
+  weight?: Weight;
 }
 
 export interface Age {

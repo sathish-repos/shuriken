@@ -1,0 +1,9 @@
+@if (content()) {
+<div class="mb-3">
+  @if (title()) {
+  <h5>{{ title() }}</h5>
+  } @for (item of keys() | keyvalue; track $index) {
+  <p>{{ item.value }}: {{ getValue(item.value) }}</p>
+  }
+</div>
+}

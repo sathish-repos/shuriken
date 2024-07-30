@@ -6,10 +6,10 @@
       [content]="content().affiliation"
     ></nu-list-items>
   </div>
-
   <div>
-    age
-    {{ content().age }}
+    @if(content().age){
+    <nu-key-value title="Age" [content]="content().age!"></nu-key-value>
+    }
   </div>
 
   <div>
@@ -32,8 +32,9 @@
     ></nu-list-items>
   </div>
   <div>
-    Height
-    {{ content().height }}
+    @if(content().height){
+    <nu-key-value title="Height" [content]="content().height!"></nu-key-value>
+    }
   </div>
   <div>
     <nu-list-items
@@ -95,8 +96,9 @@
     ></nu-list-items>
   </div>
   <div>
-    weight
-    {{ content().weight }}
+    @if(content().weight){
+    <nu-key-value title="weight" [content]="content().weight!"></nu-key-value>
+    }
   </div>
 </nu-feed>
 }
