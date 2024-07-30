@@ -14,9 +14,10 @@
             <div class="flex flex-column align-items-start">
               <span class="text-xl text-900 font-medium mb-1">{{
                 item.name
-              }}</span
-              ><span class="text-600 font-medium mb-2">{{
-                item.personal.sex
+              }}</span>
+              @if (item.personal) {
+              <span class="text-600 font-medium mb-2">{{
+                item.personal.sex ? item.personal.sex : "Unknown"
               }}</span
               ><span
                 class="text-gray-50 {{
@@ -24,6 +25,7 @@
                 }} border-round inline-flex py-1 px-2 text-sm"
                 >{{ getStatus(item.personal.status) }}</span
               >
+              }
             </div>
           </div>
           <div class="flex justify-content-between pt-4">
