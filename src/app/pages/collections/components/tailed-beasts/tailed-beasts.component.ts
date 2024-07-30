@@ -4,12 +4,13 @@ import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
 import { CollectionsService } from '../../services/collection.service';
-import { PageEnums } from '../../enums/collections.enums';
+import { PageEnums, ItemCountEnums } from '../../enums/collections.enums';
+import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
   selector: 'nu-tailed-beasts',
   standalone: true,
-  imports: [AsyncPipe, CharacterGridComponent],
+  imports: [AsyncPipe, CharacterGridComponent, PaginatorModule],
   templateUrl: './tailed-beasts.component.html',
   styleUrl: './tailed-beasts.component.scss',
 })
@@ -21,4 +22,21 @@ export default class TailedBeastsComponent {
   content$: Signal<Observable<TailedBeasts>> = computed(() =>
     this.collectionsService.getTailedBeasts(this.currentPage(), this.pageSize())
   );
+
+  first: number = 0;
+  rows: number = PageEnums.ITEM_COUNT;
+
+  getCountArray = computed(() => [
+    ItemCountEnums.LOW,
+    ItemCountEnums.MEDIUM,
+    ItemCountEnums.HIGH,
+  ]);
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+
+    this.currentPage.set(event.page);
+    this.pageSize.set(event.rows);
+  }
 }

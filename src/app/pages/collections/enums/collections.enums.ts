@@ -6,5 +6,5 @@ export enum ItemCountEnums {
 
 export enum PageEnums {
   CURRENT_PAGE = 0,
-  ITEM_COUNT = ItemCountEnums.HIGH,
+  ITEM_COUNT = ItemCountEnums.LOW,
 }

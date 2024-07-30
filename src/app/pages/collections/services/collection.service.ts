@@ -29,6 +29,8 @@ export class CollectionsService {
   }
 
   getCharacters(currentPage: number, pageSize: number): Observable<Characters> {
+    console.log(currentPage, pageSize);
+
     return this.http.get<Characters>(`${this.baseUrl}/characters`, {
       params: this.getQueryParams(currentPage, pageSize),
     });

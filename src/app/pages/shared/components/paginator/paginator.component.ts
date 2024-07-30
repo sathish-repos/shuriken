@@ -23,9 +23,7 @@ export class PaginatorComponent {
   onPageChange(event: any) {
     this.first.set(event.first);
     this.rows.set(event.rows);
-    // setTimeout(() => {
-    //   this.emitCurrentPageAndPageSize(event.page, event.rows);
-    // }, 1000);
+    this.emitCurrentPageAndPageSize(event.page, event.rows);
   }
 
   emitCurrentPageAndPageSize(currentPage: number, PageSize: number) {
