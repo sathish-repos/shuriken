@@ -28,14 +28,14 @@ export const navItemsMock: NavItems[] = [
     icon: 'home',
   },
   {
-    label: 'Akatsuki',
-    link: '/akatsuki',
-    icon: 'turkish-lira',
-  },
-  {
     label: 'Characters',
     link: '/characters',
     icon: 'user',
+  },
+  {
+    label: 'Akatsuki',
+    link: '/akatsuki',
+    icon: 'turkish-lira',
   },
   {
     label: 'Clans',
@@ -48,6 +48,11 @@ export const navItemsMock: NavItems[] = [
     icon: 'star',
   },
   {
+    label: 'Teams',
+    link: '/teams',
+    icon: 'users',
+  },
+  {
     label: 'Kekkei-genkai',
     link: '/kekkei-genkai',
     icon: 'slack',
@@ -56,11 +61,6 @@ export const navItemsMock: NavItems[] = [
     label: 'Taild-beasts',
     link: '/taild-beasts',
     icon: 'prime',
-  },
-  {
-    label: 'Teams',
-    link: '/teams',
-    icon: 'users',
   },
   {
     label: 'Villages',
