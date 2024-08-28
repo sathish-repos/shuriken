@@ -5,11 +5,12 @@ import { GroupTypeAction } from '../../enums/group-type.enum';
 import { GroupRouteService } from '../../services/group-routing.service';
 import { Header } from '../header/models/header.types';
 import { HeaderComponent } from '../header/header.component';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'nu-group-grid',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, SpinnerComponent],
   templateUrl: './group-grid.component.html',
   styleUrl: './group-grid.component.scss',
 })

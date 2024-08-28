@@ -1,4 +1,6 @@
 @if (content$ | async; as content) {
 <nu-photo [content]="content.images"></nu-photo>
 <nu-details [content]="content"></nu-details>
+}@else {
+  <nu-spinner></nu-spinner>
 }

@@ -176,5 +176,5 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component'),
     pathMatch: 'full',
   },
-  { path: '**', loadComponent: () => import('./pages/home/home.component') },
+  { path: '**', redirectTo: '' },
 ];

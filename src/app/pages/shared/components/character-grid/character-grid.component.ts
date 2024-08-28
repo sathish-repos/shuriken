@@ -5,10 +5,11 @@ import { AsyncPipe } from '@angular/common';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { HeaderComponent } from '../header/header.component';
 import { Header } from '../header/models/header.types';
+import { SpinnerComponent } from '../spinner/spinner.component';
 @Component({
   selector: 'nu-character-grid',
   standalone: true,
-  imports: [AsyncPipe, PaginatorComponent, HeaderComponent],
+  imports: [AsyncPipe, PaginatorComponent, HeaderComponent, SpinnerComponent],
   templateUrl: './character-grid.component.html',
   styleUrl: './character-grid.component.scss',
 })
