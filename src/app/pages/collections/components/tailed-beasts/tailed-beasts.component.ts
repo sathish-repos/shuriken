@@ -6,6 +6,7 @@ import { CharacterGridComponent } from '../../../shared/components/character-gri
 import { CollectionsService } from '../../services/collection.service';
 import { PageEnums, ItemCountEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-tailed-beasts',
@@ -25,6 +26,7 @@ export default class TailedBeastsComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(TailedBeastsHeaderMocks);
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -40,3 +42,8 @@ export default class TailedBeastsComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const TailedBeastsHeaderMocks: Header = {
+  title: 'TailedBeasts',
+  description: `The tailed beasts are 12 living forms of chakra created by the Sage of Six Paths. They are also known as "Chakra Monsters".`,
+};

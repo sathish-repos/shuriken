@@ -6,6 +6,7 @@ import { AsyncPipe } from '@angular/common';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
 import { PageEnums, ItemCountEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-characters',
@@ -25,6 +26,7 @@ export default class CharactersComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(CharactersHeaderMocks);
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -40,3 +42,8 @@ export default class CharactersComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const CharactersHeaderMocks: Header = {
+  title: 'Characters',
+  description: `The eponymous characters of the first series is Naruto Uzumaki, an energetic ninja who wishes to become Hokage.`,
+};

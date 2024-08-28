@@ -7,6 +7,7 @@ import { GroupGridComponent } from '../../../shared/components/group-grid/group-
 import { GroupTypeAction } from '../../../shared/enums/group-type.enum';
 import { ItemCountEnums, PageEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-clans',
@@ -28,6 +29,7 @@ export default class ClansComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(ClansHeaderMocks);
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -43,3 +45,8 @@ export default class ClansComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const ClansHeaderMocks: Header = {
+  title: 'Clans',
+  description: ` A listing of all the clans in Naruto series.`,
+};

@@ -6,6 +6,7 @@ import { CollectionsService } from '../../services/collection.service';
 import { CharacterGridComponent } from '../../../shared/components/character-grid/character-grid.component';
 import { ItemCountEnums, PageEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 @Component({
   selector: 'nu-akatsuki',
   standalone: true,
@@ -24,6 +25,7 @@ export default class AkatsukiComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(AkatsukiHeaderMocks);
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -39,3 +41,10 @@ export default class AkatsukiComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const AkatsukiHeaderMocks: Header = {
+  title: 'Akatsuki',
+  description: `A group of shinobi that existed outside the usual system of hidden villages.
+    Over the course of several decades, Akatsuki took different forms and was
+    led by different individuals.`,
+};

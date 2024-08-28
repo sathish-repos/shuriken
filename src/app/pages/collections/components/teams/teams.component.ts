@@ -7,6 +7,7 @@ import { GroupTypeAction } from '../../../shared/enums/group-type.enum';
 import { CollectionsService } from '../../services/collection.service';
 import { PageEnums, ItemCountEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-teams',
@@ -28,6 +29,7 @@ export default class TeamsComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(TeamsHeaderMocks)
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -43,3 +45,8 @@ export default class TeamsComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const TeamsHeaderMocks: Header = {
+  title: 'Teams',
+  description: `Teams are groups of shinobi who work together.`,
+};

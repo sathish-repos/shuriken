@@ -7,6 +7,7 @@ import { Villages } from '../../models';
 import { CollectionsService } from '../../services/collection.service';
 import { ItemCountEnums, PageEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-villages',
@@ -28,6 +29,7 @@ export default class VillagesComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(VillagesHeaderMocks);
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -43,3 +45,8 @@ export default class VillagesComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const VillagesHeaderMocks: Header = {
+  title: 'Villages',
+  description: `villages are powerful shinobi villages that belong to the Five Great Shinobi Countries.`,
+};

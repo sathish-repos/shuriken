@@ -7,6 +7,7 @@ import { GroupTypeAction } from '../../../shared/enums/group-type.enum';
 import { GroupGridComponent } from '../../../shared/components/group-grid/group-grid.component';
 import { PageEnums, ItemCountEnums } from '../../enums/collections.enums';
 import { PaginatorModule } from 'primeng/paginator';
+import { Header } from '../../../shared/components/header/models/header.types';
 
 @Component({
   selector: 'nu-kekkei-genkai',
@@ -31,6 +32,7 @@ export default class KekkeiGenkaiComponent {
 
   first: number = 0;
   rows: number = PageEnums.ITEM_COUNT;
+  header = signal<Header>(KekkeiGenkaiHeaderMocks)
 
   getCountArray = computed(() => [
     ItemCountEnums.LOW,
@@ -46,3 +48,8 @@ export default class KekkeiGenkaiComponent {
     this.pageSize.set(event.rows);
   }
 }
+
+const KekkeiGenkaiHeaderMocks: Header = {
+  title: 'KekkeiGenkai',
+  description: `Kekkei Genkai are special abilities in Naruto that are unique to specific clans and are inherited genetically. They are often sought after and can be used through the eye's special chakra.`,
+};
