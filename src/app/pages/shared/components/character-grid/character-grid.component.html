@@ -1,6 +1,7 @@
 @if (content()) {
-<div class="lg:px-8 md:px-6 px-4 py-8 surface-ground ng-star-inserted">
+<div class="lg:px-8 md:px-6 px-4 py-3 surface-ground ng-star-inserted">
   <div class="surface-ground">
+    <nu-header [content]="header()"></nu-header>
     <div class="grid">
       @for (item of content(); track item.id) {
       <div class="col-12 md:col-6 xl:col-4 p-3">
