@@ -15,6 +15,17 @@
         <ul class="list-none p-3 m-0">
           <li>
             <ul class="list-none p-0 m-0 overflow-hidden">
+              <li class="nav-item">
+                <a
+                  routerLinkActive="nav-item-active"
+                  routerLink="/"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="p-element flex align-items-center cursor-pointer p-3 border-round text-700"
+                  ><i class="pi pi-home mr-2"></i
+                  ><span class="font-medium nav-label">Home</span
+                  ><span class="p-ink"></span
+                ></a>
+              </li>
               @for (item of content(); track $index) {
               <li class="nav-item">
                 <a
@@ -49,9 +60,7 @@
           class="p-ripple p-element cursor-pointer inline-flex align-items-center justify-content-center lg:hidden text-700 mr-3"
           ><i class="pi pi-bars text-4xl"></i><span class="p-ink"></span
         ></a>
-        <div routerLink="/" class="logo cursor-pointer hover:text-primary">
-          Shurikan
-        </div>
+        <div routerLink="/" class="logo cursor-pointer">Shurikan</div>
       </div>
     </div>
     <div class="flex flex-column flex-auto content-section" id="style-7">
