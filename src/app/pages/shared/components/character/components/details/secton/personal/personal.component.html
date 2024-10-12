@@ -1,10 +1,7 @@
 @if (content()) {
 <nu-feed title="Personal Info" icon="user" color="cyan-500">
   <div>
-    <nu-list-items
-      title="Affiliation"
-      [content]="content().affiliation"
-    ></nu-list-items>
+    <nu-list-items title="Affiliation" [content]="content().affiliation"></nu-list-items>
   </div>
   <div>
     @if(content().age){
@@ -13,23 +10,22 @@
   </div>
 
   <div>
-    birthdate
-    {{ content().birthdate }}
+    @if (content().birthdate) {
+    <nu-info title="Birth Date" [value]="content().birthdate!"></nu-info>
+    }
   </div>
 
   <div>
-    bloodType
-    {{ content().bloodType }}
+    @if (content().bloodType) {
+    <nu-info title="BloodType" [value]="content().bloodType!"></nu-info>
+    }
   </div>
 
   <div>
     <nu-list-items title="Clan" [content]="content().clan"></nu-list-items>
   </div>
   <div>
-    <nu-list-items
-      title="Classification"
-      [content]="content().classification"
-    ></nu-list-items>
+    <nu-list-items title="Classification" [content]="content().classification"></nu-list-items>
   </div>
   <div>
     @if(content().height){
@@ -37,63 +33,47 @@
     }
   </div>
   <div>
-    <nu-list-items
-      title="jinchūriki"
-      [content]="content()['jinchūriki']"
-    ></nu-list-items>
+    <nu-list-items title="jinchūriki" [content]="content()['jinchūriki']"></nu-list-items>
   </div>
   <div>
-    <nu-list-items
-      title="kekkeiGenkai"
-      [content]="content().kekkeiGenkai"
-    ></nu-list-items>
+    <nu-list-items title="kekkeiGenkai" [content]="content().kekkeiGenkai"></nu-list-items>
   </div>
   <div>
-    kekkeiMōra
-    {{ content()["kekkeiMōra"] }}
+    @if (content()['kekkeiMōra']) {
+    <nu-info title="KekkeiMōra" [value]="content()['kekkeiMōra']!"></nu-info>
+    }
   </div>
   <div>
-    <nu-list-items
-      title="Occupation"
-      [content]="content().occupation"
-    ></nu-list-items>
+    <nu-list-items title="Occupation" [content]="content().occupation"></nu-list-items>
   </div>
 
   <div>
-    <nu-list-items
-      title="Partner"
-      [content]="content().partner"
-    ></nu-list-items>
+    <nu-list-items title="Partner" [content]="content().partner"></nu-list-items>
   </div>
   <div>
-    sex
-    {{ content().sex ? content().sex : "Unknown" }}
+    @if (content().sex) {
+    <nu-info title="Sex" [value]="content().sex ? content().sex! : 'Unknown'"></nu-info>
+    }
   </div>
   <div>
-    species
-    {{ content().species }}
+    @if (content().species) {
+    <nu-info title="Species" [value]="content().species!"></nu-info>
+    }
   </div>
 
   <div>
-    status
-    {{ content().status }}
+    @if (content().status) {
+    <nu-info title="Status" [value]="content().status!"></nu-info>
+    }
   </div>
   <div>
-    <nu-list-items
-      title="TailedBeast"
-      [content]="content().tailedBeast?.split(',')"
-    ></nu-list-items>
+    <nu-list-items title="TailedBeast" [content]="content().tailedBeast?.split(',')"></nu-list-items>
   </div>
   <div>
     <nu-list-items title="Team" [content]="content().team"></nu-list-items>
   </div>
   <div>
-    <nu-list-items
-      title="Titles"
-      [applyGrid]="false"
-      [breakText]="true"
-      [content]="content().titles"
-    ></nu-list-items>
+    <nu-list-items title="Titles" [applyGrid]="false" [breakText]="true" [content]="content().titles"></nu-list-items>
   </div>
   <div>
     @if(content().weight){
